@@ -1,1 +1,38 @@
 /* song css */
+.song-row {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin: 10px 20px;
+    border-bottom: 1px solid black;
+}
+
+.rank-info {
+    width: 125px;
+}
+
+.song-info {
+    width: 500px;
+}
+
+.publication-info {
+    width: 200px;
+    align-self: flex-end;
+}
+
+.rank {
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.title {
+    font-size: 1.5em;
+}
+
+.artist {
+    font-style: italic;
+}
+
+.details {
+    font-size: 0.8em;
+}
