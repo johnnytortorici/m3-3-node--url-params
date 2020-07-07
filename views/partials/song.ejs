@@ -6,7 +6,7 @@
                 <%- `<p class="details">(${song.streams} streams)</p>` %>
             </div>
             <div class="song-info">
-                <%- `<p class="title">${song.title}</p>` %>
+                <%- `<a href="/top50/song/${song.rank}" target="_self"><p class="title">${song.title}</p></a>` %>
                 <%- `<p class="artist">by ${song.artist}</p>` %>
             </div>
             <div class="publication-info">

@@ -1,4 +1,7 @@
 /* song css */
+a { color: black; }
+a:hover { text-decoration: none; }
+
 .song-row {
     display: flex;
     align-items: center;

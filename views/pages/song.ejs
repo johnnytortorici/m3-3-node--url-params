@@ -1,0 +1,18 @@
+<!-- Include Header partial -->
+<%- include ('../partials/header') %>
+
+<nav class="nav">
+    <a href="/top50/song/<%= song.rank - 1 %>" target="_self">previous</a>
+    <a href="/top50/song/<%= song.rank + 1 %>" target="_self">next</a>
+</nav>
+
+<div class="song-container">
+    <div class="song-item">
+        <%- `<h2>${song.title}</h2>` %>
+        <%- `<p>${song.artist}</p>` %>
+        <%- `<p class="streams">${song.streams}</p>` %>
+    </div>
+</div>
+
+<!-- Include Footer partial -->
+<%- include('../partials/footer') %>

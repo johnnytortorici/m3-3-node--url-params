@@ -15,11 +15,38 @@ app.use(express.urlencoded({extended: false}));
 app.set('view engine', 'ejs');
 
 // endpoints here
+
+// handle top50 page
 app.get('/top50', (req, res) => {
     res.status(200);
     res.render('pages/top50', { 
         title: 'Top 50 Songs Streamed on Spotify',
         top50: top50
+    });
+});
+
+// handle individual song page
+app.get('/top50/song/:num', (req, res) => {
+    const num = req.params.num;
+    let songObj = {};
+
+    top50.forEach( (song) => {
+        // render page only if object exists with rank equal to param
+        if (song.rank.toString() === num) {
+            songObj = song;
+
+            res.status(200);
+            res.render('pages/song', { 
+                title: `Song #${num}`,
+                song: songObj
+            });
+        }
+    });
+    // render 404 if previous if was not triggered
+    res.status(404);
+    res.render('pages/fourOhFour', {
+        title: 'I got nothing',
+        path: req.originalUrl
     });
 });
 
