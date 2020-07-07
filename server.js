@@ -36,18 +36,21 @@ app.get('/top50/song/:num', (req, res) => {
             songObj = song;
 
             res.status(200);
+            res.statusMessage = 'ok';
             res.render('pages/song', { 
                 title: `Song #${num}`,
                 song: songObj
             });
         }
     });
-    // render 404 if previous if was not triggered
-    res.status(404);
-    res.render('pages/fourOhFour', {
-        title: 'I got nothing',
-        path: req.originalUrl
-    });
+    // render 404 only if previous if was not triggered
+    if (res.statusMessage !== 'ok') {
+        res.status(404);
+        res.render('pages/fourOhFour', {
+            title: 'I got nothing',
+            path: req.originalUrl
+        });
+    }
 });
 
 // handle 404s
